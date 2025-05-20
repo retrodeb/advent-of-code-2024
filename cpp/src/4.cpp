@@ -18,8 +18,6 @@ int main() {
 		}
 	}
 
-	std::cout << "width: " << width << std::endl;
-	
 	auto get_char = [&input, width] (u32 x, u32 y) -> char {
 		return input.at(y * (width+1) + x);
 	};
