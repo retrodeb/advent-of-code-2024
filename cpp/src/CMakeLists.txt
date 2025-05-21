@@ -1,8 +1,14 @@
 
 
-foreach(i RANGE 1 5)
-  add_executable(${i} ${i}.cpp utils.cpp)
+foreach(i RANGE 1 6)
+  set(SOURCES "${i}.cpp")
+  if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${i}")
+    file(GLOB_RECURSE SOURCES "${i}/*.cpp")
+  endif()
+  add_executable(${i} ${SOURCES} utils.cpp)
 endforeach()
+
+include_directories(QUOTE .)
 
 add_custom_target(
   link_inputs ALL

@@ -1,0 +1,46 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "Debug",
+      "displayName": "Debug",
+      "description": "Debug preset with debug symbols and no optimizations",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "Release",
+      "displayName": "Release",
+      "description": "Release preset with optimizations and no debug symbols",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "RelWithDebInfo",
+      "displayName": "RelWithDebInfo",
+      "description": "Release with debug symbols",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "MinSizeRel",
+      "displayName": "MinSizeRel",
+      "description": "Release with minimal code size",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "MinSizeRel"
+      }
+    },
+    {
+      "name": "DebugSanitizer",
+      "displayName": "Debug + Sanitizer",
+      "description": "Debug preset with debug symbols, no optimizations and sanitizer",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-fsanitize=address,undefined"
+      }
+    }
+  ]
+}
