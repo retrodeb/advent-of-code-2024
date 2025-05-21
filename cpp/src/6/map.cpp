@@ -1,8 +1,8 @@
 #include "map.hpp"
 
-#include <iostream>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
 namespace aoc {
 
@@ -69,31 +69,9 @@ bool Map::check_collision(uVector2 position) const noexcept {
 }
 
 void Map::run() {
-
-	// Part one
-	while (!guard.is_out()) {
+	while (!guard.is_out() && !guard.stuck_in_loop) {
 		guard.advance();
 	}
-
-	std::cout << "Total guard visits: " << visited.size() << std::endl;
-
-	auto possible_obstructions {std::move(visited)};
-	visited.clear();
-	
-	// Part two
-	u32 total_obstructions {};
-	for (auto [position, _] : possible_obstructions) {
-		guard.reset();
-		visited.clear();
-		get_block(position).type = Block::Type::Obstacle;
-		while (!guard.is_out() && !guard.stuck_in_loop) {
-			guard.advance();
-		}
-		get_block(position).type = Block::Type::Empty;
-		if (guard.stuck_in_loop) ++total_obstructions;
-	}
-
-	std::cout << "Total possible obstructions: " << total_obstructions << std::endl;
 }
 
 }

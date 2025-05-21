@@ -1,6 +1,6 @@
 
 
-foreach(i RANGE 1 6)
+foreach(i RANGE 1 7)
   set(SOURCES "${i}.cpp")
   if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${i}")
     file(GLOB_RECURSE SOURCES "${i}/*.cpp")

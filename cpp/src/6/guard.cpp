@@ -1,10 +1,6 @@
 #include "guard.hpp"
 #include "map.hpp"
 
-
-
-
-#include <iostream>
 namespace aoc {
 
 Guard::Guard(Map& map) : m_map{map} {}
@@ -15,7 +11,6 @@ Guard& Guard::set_position(uVector2 new_position) noexcept {
 		auto [it, e] = m_map.visited.insert({new_position, {}});
 		stuck_in_loop = it->second.test(static_cast<u8>(m_facing));
 		it->second.set(static_cast<u8>(m_facing));
-		//if (stuck_in_loop) std::cout << it->second << " " << m_position.x << " " << m_position.y << std::endl;
 	}
 	return *this;
 }
